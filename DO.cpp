@@ -7,10 +7,10 @@ using namespace std;
 
 DO::DO(Relatie r) {
 	/* de adaugat */
-	elems = new TElem[cap];
 	this->cap = 5;
 	this->lg = 0;
 	this->r = r;
+	elems = new TElem[cap];
 	//am alocat dinamic vector de elemente
 	// am initializat capacitatea cu 5, iar lungimea cu 0 (nu sunt elemente)
 	//relatia este r
@@ -21,7 +21,10 @@ DO::DO(Relatie r) {
 //daca nu exista cheia, adauga perechea si returneaza null
 TValoare DO::adauga(TCheie c, TValoare v) {
 	/* de adaugat */
-
+	/* CF:
+	*  CD:
+	*  CM:
+	*/
 	//daca lungimea depaseste capacitatea, atunci dublam capacitatea
 	if (lg >= cap) {
 		TElem* new_elems = new TElem[2 * cap];
@@ -51,8 +54,8 @@ TValoare DO::adauga(TCheie c, TValoare v) {
 			}
 			this->elems[i].first = c;
 			this->elems[i].second = v;
+			return NULL_TVALOARE;
 		}
-		return NULL_TVALOARE;
 	}
 	//adaugam pe ultima pozitie perechea daca nu s-a adaugat
 	lg++;
@@ -64,7 +67,11 @@ TValoare DO::adauga(TCheie c, TValoare v) {
 //cauta o cheie si returneaza valoarea asociata (daca dictionarul contine cheia) sau null
 TValoare DO::cauta(TCheie c) const {
 	/* de adaugat */
-	for (int i = 0; i < lg; i++) {
+	//CF: O(1)
+	//CD: O(lg)
+	//CM: O(lg)
+	int i;
+	for (i = 0; i < lg; i++) {
 		if (this->elems[i].first == c) {
 			return this->elems[i].second;
 		}
@@ -75,6 +82,11 @@ TValoare DO::cauta(TCheie c) const {
 //sterge o cheie si returneaza valoarea asociata (daca exista) sau null
 TValoare DO::sterge(TCheie c) {
 	/* de adaugat */
+	/* CF: 0(lg)
+	*  CD: 0(lg)
+	*  CM: 0(lg)
+	*  CG: 0(lg)
+	*/
 	for (int i = 0; i < lg; i++) {
 		if (this->elems[i].first == c) {
 			TValoare val = this->elems[i].second;

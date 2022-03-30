@@ -15,7 +15,7 @@ void Iterator::prim() {
 
 void Iterator::urmator() {
 	/* de adaugat */
-	index++;
+	index = index + 1;
 }
 
 bool Iterator::valid() const {

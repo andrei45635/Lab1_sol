@@ -1,4 +1,5 @@
 #include <exception>
+#include <iostream>
 #include <assert.h>
 #include <algorithm>
 #include <vector>
@@ -139,7 +140,7 @@ void testAdaugaSiCauta(Relatie r) {
 		it.urmator();
 		while (it.valid()) {
 			TCheie c = it.element().first;
-			assert(r(cPrec, c));
+			assert(r(c, cPrec));
 			assert(d.cauta(c) != NULL_TVALOARE);
 			cPrec = c;
 			it.urmator();
@@ -174,7 +175,7 @@ void testStergeCauta(Relatie r) {
 			it.urmator();
 			while (it.valid()) {
 				TCheie c = it.element().first;
-				assert(r(cPrec, c));
+				assert(r(c, cPrec));
 				cPrec = c;
 				it.urmator();
 			}
@@ -226,7 +227,7 @@ void testIterator(Relatie r) {
 		TCheie c = itD.element().first;
 		assert(cMin <= c && c <= cMax);
 		assert(d.cauta(c) != NULL_TVALOARE);
-		assert(r(cPrec, c));
+		assert(r(c, cPrec));
 		cPrec = c;
 		itD.urmator();
 	}
