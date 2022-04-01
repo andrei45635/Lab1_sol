@@ -22,7 +22,7 @@ DO::DO(Relatie r) {
 TValoare DO::adauga(TCheie c, TValoare v) {
 	/* de adaugat */
 	/* CF: 0(1), lg < cap, cheia exista in dictionar si e pe prima pozitie
-	*  CD: O(3*lg), lg > cap, cheia nu exista in dictionar si o adaugam pe ultima pozitie
+	*  CD: O(lg), lg > cap, cheia nu exista in dictionar si o adaugam pe ultima pozitie
 	*  CM: 0(lg), lg < cap, cheia nu exista in dictionar si o adaugam pe o pozitie aleatoare
 	*  CG: O(lg)
 	*/
